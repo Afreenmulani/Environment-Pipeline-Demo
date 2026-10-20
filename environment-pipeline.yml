@@ -1,0 +1,20 @@
+trigger: none
+
+parameters:
+- name: Environment
+  displayName: Select Environment
+  type: string
+  default: DEV
+  values:
+    - DEV
+    - ITG
+    - PROD
+    - Pre-Prod
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- powershell: |
+    Write-Host "Deploying to ${{ parameters.Environment }}"
+  displayName: 'Print Selected Environment'
